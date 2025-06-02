@@ -4,3 +4,6 @@ aula de github
 este é o arquivo README 
 
 testando o fetch
+
+
+chmod +x robocode.sh
