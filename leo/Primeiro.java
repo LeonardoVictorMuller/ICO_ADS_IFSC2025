@@ -3,8 +3,14 @@ import robocode.*;
 import static robocode.util.Utils.normalRelativeAngleDegrees;
 
 public class Primeiro extends AdvancedRobot {
+	double battlefieldY = 0;
+	double battlefieldX = 0;
 
 	public void run() {
+		// Pegar as dimensões do campo de batalha
+		battlefieldY = getBattleFieldHeight();
+		battlefieldX = getBattleFieldWidth();
+		
 		// Alinha para o norte
 		double angleToTurn = normalRelativeAngleDegrees(0 - getHeading());
 		setTurnRight(angleToTurn);
@@ -36,12 +42,11 @@ public class Primeiro extends AdvancedRobot {
 	}
 
 	public void moverLado() {
-		double x = getBattleFieldWidth();
 		double xrobo = getX();
 
 		setTurnRight(90);
 		waitFor(new TurnCompleteCondition(this));
-		setAhead(x - xrobo - 20);
+		setAhead(battlefieldX - xrobo - 20);
 		waitFor(new MoveCompleteCondition(this));
 	}
 
@@ -69,7 +74,7 @@ public class Primeiro extends AdvancedRobot {
 
 		setTurnRight(90);
 		waitFor(new TurnCompleteCondition(this));
-		setAhead(y - yrobo - 20);
+		setAhead(battlefieldY - yrobo - 20);
 		waitFor(new MoveCompleteCondition(this));
 	}
 }
