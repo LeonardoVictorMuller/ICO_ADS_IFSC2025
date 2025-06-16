@@ -16,15 +16,26 @@ public class Primeiro extends AdvancedRobot {
 		setTurnRight(angleToTurn);
 		waitFor(new TurnCompleteCondition(this));
 
-		// Inicia o giro contínuo do canhão
-		setTurnGunRight(Double.POSITIVE_INFINITY);
-
 		// Começa indo para cima
 		setAhead(getBattleFieldHeight());
 		waitFor(new MoveCompleteCondition(this));
 
 		// Loop principal de patrulha nas bordas
 		while (true) {
+			double currentHeading = getHeading();
+			
+			if (currentHeading == 0) {
+				setTurnGunRight(90);
+			} else if (currentHeading == 90) {
+				setTurnGunRight(90);
+			} else if (currentHeading == 180) {
+				setTurnGunLeft(90);
+			} else if (currentHeading == 270) {
+				setTurnGunRight(90);
+			} else if (currentHeading == 360) {
+				setTurnGunLeft(90);
+			}
+
 			moverLado();
 			moverBaixo();
 			moverEsquerda();
@@ -33,7 +44,7 @@ public class Primeiro extends AdvancedRobot {
 	}
 
 	public void onScannedRobot(ScannedRobotEvent e) {
-		fire(1); // Pode ajustar a potência com base na distância
+		fire(1);
 	}
 
 	public void onHitWall(HitWallEvent e) {
