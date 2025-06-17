@@ -44,6 +44,11 @@ public class Primeiro extends AdvancedRobot {
 	}
 
 	public void onScannedRobot(ScannedRobotEvent e) {
+		// Gira o canhão para a direção do inimigo
+        double angleToEnemy = getHeading() + e.getBearing(); // Ângulo entre o robô e o inimigo
+        double gunTurn = normalRelativeAngleDegrees(angleToEnemy - getGunHeading()); // Normaliza o ângulo do canhão
+
+        setTurnGunRight(gunTurn);  // Gira o canhão na direção correta
 		fire(1);
 	}
 
