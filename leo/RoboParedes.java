@@ -2,7 +2,7 @@ package leo;
 import robocode.*;
 import static robocode.util.Utils.normalRelativeAngleDegrees;
 
-public class Primeiro extends AdvancedRobot {
+public class RoboParedes extends AdvancedRobot {
     double battlefieldY = 0;
     double battlefieldX = 0;
     
