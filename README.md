@@ -24,4 +24,5 @@ Este projeto tem como objetivo aplicar os conhecimentos de:
    java -jar robocode-1.9.5.2-setup.jar
 
 <!--chmod +x robocode.sh-->
-Robo feito por @LeonardoVictorMuller e @joaovs2004
+Robo feito por [LeonardoVictorMuller](https://github.com/LeonardoVictorMuller) e [JoãoVitorSchmitt](https://github.com/joaovs2004)
+
